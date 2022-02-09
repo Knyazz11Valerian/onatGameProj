@@ -1,5 +1,6 @@
 package engine;
 
+import engine.controls.Mouse;
 import org.lwjgl.BufferUtils;
 import org.lwjgl.glfw.GLFW;
 import org.lwjgl.glfw.GLFWVidMode;
@@ -70,6 +71,8 @@ public class EngineWindow {
         GLFW.glfwMakeContextCurrent(this.id);
         GL.createCapabilities();
         GL11.glViewport(0,0,this.bufferedWidth.get(0),this.bufferedHeight.get(0));
+
+        Mouse.setMouseCallBack(this.id);
 
     }
 

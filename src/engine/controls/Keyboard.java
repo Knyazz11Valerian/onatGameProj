@@ -1,5 +1,6 @@
-package engine;
+package engine.controls;
 
+import engine.EngineWindow;
 import org.lwjgl.glfw.GLFW;
 
 public class Keyboard {
