@@ -7,6 +7,7 @@ import org.lwjgl.opengl.GL;
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.system.MemoryStack;
 
+
 import java.nio.IntBuffer;
 
 public class EngineWindow {
@@ -15,6 +16,7 @@ public class EngineWindow {
     private int height;
     private String title;
     public long id;
+    public static EngineWindow instance;
 
     //Подключение нужной фигни
     public IntBuffer bufferedWidth;
@@ -23,6 +25,7 @@ public class EngineWindow {
 
     //Конструктор окна
     public EngineWindow(int width, int height, String title) {
+        instance=this;
         this.width = width;
         this.height = height;
         this.title = title;
@@ -69,6 +72,11 @@ public class EngineWindow {
         GL11.glViewport(0,0,this.bufferedWidth.get(0),this.bufferedHeight.get(0));
 
     }
+
+    public static EngineWindow getWindow(){
+        return instance;
+    }
+
 
     //Обновление окна
     public void update() {

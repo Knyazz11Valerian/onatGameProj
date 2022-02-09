@@ -1,5 +1,7 @@
 package engine;
 
+import org.lwjgl.glfw.GLFW;
+
 public class Engine {
 
     public static final int WIDTH = 640;
@@ -22,6 +24,10 @@ public class Engine {
 
     public void update() {
         while (!this.engineWindow.isCloseRequest()){
+            if (Keyboard.keyPreesed(GLFW.GLFW_KEY_A)){
+                System.out.println("A");
+            }
+            Keyboard.handleKeyboardInput();
             this.engineWindow.update();
             //render pass (рендерится пока не закроешь окно)
         }
